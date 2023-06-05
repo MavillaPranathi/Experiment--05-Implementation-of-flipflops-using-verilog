@@ -102,33 +102,79 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
-
+Connect the supply (+5V) to the circuit Switch ON the main switch If the output is 1, then the led glows.
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by:m.pranathi 
+RegisterNumber:212222240064 
 */
+i) SR Flip-Flop:
+module SR (s,r,clk,Q,Qbar);
+input s,r,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+	Q=s | ((~r) & Q);
+	Qbar=r  | ((~s)&(Qbar));
+end
+endmodule
 
+ii)  D Flip-Flop:
+module D (d,clk,qpa,qpr,qprbar);
+input d,qpa,clk;
+output reg qpr,qprbar;
+always@ (posedge clk)
+begin
+	qpr=d;
+	qprbar=~qpr;
+end
+endmodule
 
+iii)  JK Flip-Flop:
+module JK (j,k,clk,Q,Qbar);
+input j,k,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+	Q=((~k)&(Q)) | ((j)&(~Q));
+	Qbar= ((~j)&(~Qbar)) | (k & Qbar);
+end
+endmodule
 
-
-
+iv)  T Flip-Flop:
+module T (t,clk,qpa,qpr,qprbar);
+input t,qpa,clk;
+output reg qpr,qprbar;
+always@ (posedge clk)
+begin
+	qpr=(~t)& qpa | (~qpa)& t;
+	qprbar= t& qpa | (~t) & (~qpa);
+end
+endmodule
 
 ### RTL LOGIC FOR FLIPFLOPS 
 
+![242494864-29147497-9af4-45b6-a5db-d4b1de1a3507](https://github.com/MavillaPranathi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118343610/115ded3f-93aa-4486-a505-29be30003145)
+
+![241764132-086e84ec-10c6-4772-b52c-b12e6e14aede](https://github.com/MavillaPranathi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118343610/69ecb4c3-4d1f-4ba7-b294-78309923f904)
 
 
 
 
 
-
-
+![241693960-068ba65f-b493-4e78-b99d-2ba12bb9acbd](https://github.com/MavillaPranathi/Experiment--05-Implementation-of-flipflops-using-verilog/assets/118343610/daf9fc94-648a-4719-aa57-78edf605c7aa)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+
 
 
 
