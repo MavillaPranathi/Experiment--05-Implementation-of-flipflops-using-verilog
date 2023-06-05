@@ -106,6 +106,7 @@ Q(t+1)=T′Q(t)+TQ(t)′
 Connect the supply (+5V) to the circuit Switch ON the main switch If the output is 1, then the led glows.
 
 ### PROGRAM 
+```
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by:m.pranathi 
@@ -160,7 +161,7 @@ begin
 	qprbar= t& qpa | (~t) & (~qpa);
 end
 endmodule
-
+```
 ### RTL LOGIC FOR FLIPFLOPS 
 1.SR FLIP-FLOP:
 
